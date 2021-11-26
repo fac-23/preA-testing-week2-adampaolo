@@ -1,0 +1,98 @@
+/**
+ * CONTENTS
+ *
+ * SETTINGS
+ * Global...............Globally-available variables and config.
+ *
+ * GENERIC
+ * Box-sizing...........Better default `box-sizing`.
+ *
+ * BASE
+ * Headings.............H1–H6 styles.
+ *
+ * COMPONENTS
+ * #header............The main page header.
+ * #footer............The main page footer.
+ * buttons..............Button elements.
+ *
+ * SECTIONS
+ *
+ * MODIFIER CLASSES
+ *
+ */
+
+
+
+:root {
+  --color-blue: #3D5A6C;
+}
+
+ .note__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks {
+  height: 500px;
+}
+
+.tasks__list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.tasks__note {
+  width: 200px;
+  background-color: var(--color-blue);
+  padding: 1rem 1.5rem;
+  color: #fff;
+  text-align: center;
+}
+
+
+
+.hidden {
+  display: none;
+}
+
+
+/*------------------------------------*\
+  MODIFIER CLASSES
+\*------------------------------------*/
+
+/* width modifier classes */
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60rem;
+}
+
+.width-lg {
+  max-width: 60rem;
+}
+
+.width-md {
+  max-width: 40rem;
+}
+
+.width-sm {
+  max-width: 20rem;
+}
+
+
+/* stack modifier classes */
+
+.stack-lg > * + * {
+  margin-top: 3rem;
+}
+
+.stack-md > * + * {
+  margin-top: 1.2rem; 
+}
+
+.stack-sm > * + * {
+  margin-top: 0.5rem;
+}
