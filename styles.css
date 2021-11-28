@@ -22,15 +22,52 @@
  */
 
 
+/*------------------------------------*\
+  SETTINGS
+\*------------------------------------*/
 
-:root {
-  --color-blue: #3D5A6C;
+html {
+  --color-note: #3D5A6C;
+  --color-note--completed: #419D78;
 }
+
+/*------------------------------------*\
+  GENERIC
+\*------------------------------------*/
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/*------------------------------------*\
+  BASE
+\*------------------------------------*/
+
+
+
+
+
+/*------------------------------------*\
+  NOTE FORM
+\*------------------------------------*/
 
  .note__form {
   display: flex;
   flex-direction: column;
 }
+
+
+
+
+
+/*------------------------------------*\
+  TASKS LIST
+\*------------------------------------*/
 
 .tasks {
   height: 500px;
@@ -45,10 +82,14 @@
 
 .tasks__note {
   width: 200px;
-  background-color: var(--color-blue);
+  background-color: var(--color-note);
   padding: 1rem 1.5rem;
   color: #fff;
   text-align: center;
+}
+
+.tasks__note.completed {
+  background-color: var(--color-note--completed);
 }
 
 
