@@ -92,6 +92,11 @@ html {
   background-color: var(--color-note--completed);
 }
 
+.tasks__note-delete{
+  position: relative;
+  top: -32px;
+  right: -100px;
+}
 
 
 .hidden {

@@ -14,6 +14,8 @@ const tasksList = document.querySelector(".tasks__list");
 const checkTaskOffBtns = document.querySelectorAll(".tasks__note-check");
 let notes = [];
 
+const deleteTaskBtns = document.querySelectorAll(".tasks__note-delete")
+
 
 
 /*-------------------------------------------*\
@@ -44,21 +46,23 @@ function addNote(titleText, bodyText) {
   note.id = "note_" + notes.length;
 
   // Dinamically create html note content
+  //Added in the delete buttons for the tasks
   note.innerHTML = `
+  <button class='tasks__note-delete'>X</button>
   <button type="button" class="tasks__note-check">☑️</button>
   <h2 class='tasks__note-title'>${titleText}</h2>
   <p class='tasks__note-body'>${bodyText}</p>
   `
-  
+
   // update the DOM
   tasksList.append(note);
 
   // store the note into an object and push it to the notes array
-  if(noteTitle.value !== '') {
+  if (noteTitle.value !== '') {
     notes.push({
       "noteId": "note_" + notes.length,
       "noteTitle": titleText,
-      "noteBody": bodyText, 
+      "noteBody": bodyText,
       "completed": false
     });
   }
@@ -71,17 +75,27 @@ function addNote(titleText, bodyText) {
 // Function to check task off
 function checkTaskOff(e) {
   // console.log(typeof e);
-  if(e.target.classList.contains("tasks__note-check")) {
+  if (e.target.classList.contains("tasks__note-check")) {
     let checkedBtnTarget = e.target;
     checkedBtnTarget.parentElement.classList.toggle('completed');
   }
-  // return e; // for testing checkTaskOff receives an object
+  //return e; // for testing checkTaskOff receives an object
+}
+
+//Function to delete task
+function taskDelete(e) {
+  if (e.target.classList.contains("tasks__note-delete")) {
+    let deleteBtn = e.target;
+    deleteBtn.parentElement.remove()
+    // classList.add('hidden');
+  }
 }
 
 
 /*-------------------------------------------*\
   EVENT LISTENERS
 \*-------------------------------------------*/
+
 
 // When user presses enter on keyboard, get the submitted data from the form, then call addNote();
 window.addEventListener("keydown", (e) => {
@@ -99,4 +113,7 @@ form.addEventListener("submit", (e) => {
 
 // When user clicks on checkTaskOff button, the note turns green
 tasksList.addEventListener("click", checkTaskOff);
+
+//Delete button that removes tasks
+tasksList.addEventListener('click', taskDelete)
 
