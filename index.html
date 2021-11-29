@@ -11,48 +11,45 @@
 
 <body>
 
+  <button type="button" class="btn-round btn-new-note">+</button>
+
   <!--User input enter note section-->
-  <section class="note center">
-    <form action="" class="note__form center width-sm stack-md">
+  <section class="note hidden">
 
-      <button type="button" id="note__btn--close">X</button>
-
-      <label for="note__title">Enter note title</label>
-      <input type="text" name="note__title" id="note__title" placeholder="add note title" required>
+    <form action="" class="note__form width-sm stack-md">
 
 
-      <label for="note__body">Enter note body</label>
-      <textarea name="note__body" id="note__body" cols="30" rows="10" placeholder="Enter note body">
-      </textarea>
+      <label for="note__title">NOTE TITLE</label>
+      <input type="text" name="note__title" id="note__title" required>  
 
       <button type="submit" id="note__btn--submit">Submit Note</button>
+
+
+      <label for="note__body">NOTE BODY</label>
+      <textarea name="note__body" id="note__body" cols="30" rows="10">
+      </textarea>
+
 
     </form>
   </section>
 
-
   <!--Tasks list section-->
-  <section class="tasks">
+  <section class="tasks center width-lg">
 
     <ul class="tasks__list stack-sm">
 
-      <li class="tasks__note stack-md" id="">
-        <button type="button" class='tasks__note-delete'>X</button>
-        <button type="button" class="tasks__note-check">☑️</button>
-        <h2 class='tasks__note-title'>Note title-1</h2>
-        <p class='tasks__note-body'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum dolorem accusantium
-          delectus nihil provident eveniet? Odit accusantium quod minus ex exercitationem, maiores itaque placeat
-          veritatis. Ratione ab eligendi sapiente et.</p>
+      <li class="tasks__note" id="">
+        <div class="tasks__note-content">        
+          <h2 class="tasks__note-title">Note title-1</h2>
+          <p class="tasks__note-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa tempore ipsa ullam debitis provident totam, natus quod corporis sunt labore, unde dignissimos sapiente laborum quis vitae sequi harum, error saepe?</p>
+        </div>
+
+          <div class="tasks__note-controls">
+            <button type="button" class="btn-control tasks__note-check">☑️</button>
+            <button type="button" class="btn-control tasks__note-delete">X</button>
+          </div>
       </li>
 
-      <li class="tasks__note stack-md" id="">
-        <button type="button" class='tasks__note-delete'>X</button>
-        <button type="button" class="tasks__note-check">☑️</button>
-        <h2 class='tasks__note-title'>Note title-2</h2>
-        <p class='tasks__note-body'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum dolorem accusantium
-          delectus nihil provident eveniet? Odit accusantium quod minus ex exercitationem, maiores itaque placeat
-          veritatis. Ratione ab eligendi sapiente et.</p>
-      </li>
 
     </ul>
 
@@ -61,7 +58,7 @@
 
   <script src="app.js"></script>
   <script src="test-helpers.js"></script>
-  <script src="index.test.js"></script>
+  <!-- <script src="index.test.js"></script> -->
 </body>
 
 </html>

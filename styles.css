@@ -27,9 +27,27 @@
 \*------------------------------------*/
 
 html {
+
+  /* Note colors */
   --color-note: #3D5A6C;
   --color-note--completed: #419D78;
+  --color-note--delete: #e74c3c;
+
+  /* body */
+  --color-bodyBckg1: #8AA2A9;
+  --color-bodyBckg2: #fff;
+
+  /* new note section */
+  --color-noteBckg1: #717C89;
+  --color-noteBckg2: #90BAAD;
+
+
+
 }
+
+
+
+
 
 /*------------------------------------*\
   GENERIC
@@ -44,10 +62,41 @@ html {
 
 
 
+
+
 /*------------------------------------*\
   BASE
 \*------------------------------------*/
 
+body {
+  background-repeat: no-repeat;
+  font-family: sans-serif;
+  min-height: 100vh;
+  background-image: linear-gradient(120deg, var(--color-bodyBckg1), var(--color-bodyBckg2));
+
+}
+
+.btn-round {
+  border-radius: 50%;
+  border: none;
+  padding: 1rem 1.3rem;
+  cursor: pointer;
+  box-shadow: 1px 1px 15px rgb(110, 110, 110);
+}
+
+.btn-new-note {
+  position: fixed;
+  z-index: 100;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
+.btn-control  {
+  border: none;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
 
 
 
@@ -56,9 +105,43 @@ html {
   NOTE FORM
 \*------------------------------------*/
 
- .note__form {
+.note {
+  position: fixed;
+  background-image: linear-gradient(120deg, var(--color-noteBckg1), var(--color-noteBckg2));
+  z-index: 50;
+  top: 0;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  opacity: 1;
+  transition: all 0.8s;
+}
+
+.note.hidden {
+  display: none;
+}
+
+.note__form {
   display: flex;
   flex-direction: column;
+}
+
+#note__title, #note__body, #note__btn--submit {
+  border: none;
+  padding: 0.4rem;
+  font-size: 1.5rem;
+}
+
+#note__btn--submit {
+  cursor: pointer;
+  transition: all 0.3 ease;
+}
+
+#note__btn--submit:hover {
+  transform: scale(1.05);
 }
 
 
@@ -69,39 +152,70 @@ html {
   TASKS LIST
 \*------------------------------------*/
 
+
 .tasks {
-  height: 500px;
+  z-index: 1;
+  padding: 6rem 0 3rem 0;
 }
 
 .tasks__list {
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
 }
 
 .tasks__note {
-  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--color-note);
   padding: 1rem 1.5rem;
   color: #fff;
-  text-align: center;
+  text-align: left;
+}
+
+.tasks__note-content {
+  display: flex;
+  align-items: center;
+}
+
+.tasks__note-title {
+  min-width: 150px;
+  flex: 0 1 auto;
+}
+
+.tasks__note p, .tasks__note h2, .tasks__note-controls {
+  padding: 0.5rem;
 }
 
 .tasks__note.completed {
   background-color: var(--color-note--completed);
 }
 
-.tasks__note-delete{
+.tasks__note-controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks__note-delete {
+  background-color: var( --color-note--delete);
+}
+
+/* .tasks__note-delete{
   position: relative;
   top: -32px;
   right: -100px;
-}
+} */
 
 
-.hidden {
-  display: none;
-}
+
+
+
+
+
+
+
+
 
 
 /*------------------------------------*\
