@@ -48,7 +48,7 @@ function addNote() {
 
   // dinamically create html note content
   note.innerHTML = `
-  <div class="tasks__note-content">  
+  <div class="tasks__note-content">
     <h2 class='tasks__note-title'>${title}</h2>
     <p class='tasks__note-body'>${body}</p>
   </div>
@@ -57,7 +57,7 @@ function addNote() {
     <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
   </div>
   `
-
+  
   // update the DOM
   tasksList.append(note);
 

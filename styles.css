@@ -200,12 +200,14 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex: 1 1 auto;
 }
 
 .tasks__note-title {
   min-width: 150px;
   flex: 0 1 auto;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .tasks__note p, .tasks__note h2, .tasks__note-controls {
@@ -215,16 +217,13 @@ body {
 .tasks__note-controls {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
 .tasks__note-delete {
   background-color: var( --color-note--delete);
   color: #fff;
   font-size: 2rem;
-}
-
-.tasks__note-delete:hover, .tasks__note-check:hover {
-  border-radius: 5px;
 }
 
 .completed {
