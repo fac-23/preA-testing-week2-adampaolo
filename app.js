@@ -2,9 +2,13 @@
   VARIABLES
 \*-------------------------------------------*/
 
-/* input form */
+
+/* layout */
+const newNoteBtn = document.querySelector(".btn-new-note")
+
+/* note input form */
+const addNoteSection = document.querySelector(".note");
 const form = document.querySelector(".note__form");
-const noteCloseBtn = document.querySelector("#note__btn--close");
 const noteTitle = document.querySelector("#note__title");
 const noteBody = document.querySelector("#note__body");
 const noteSubmitBtn = document.querySelector("#note__btn--submit");
@@ -14,7 +18,11 @@ const tasksList = document.querySelector(".tasks__list");
 const checkTaskOffBtns = document.querySelectorAll(".tasks__note-check");
 let notes = [];
 
+/* single note/task */
+const noteControls = document.querySelector(".tasks__note-controls");
 const deleteTaskBtns = document.querySelectorAll(".tasks__note-delete")
+
+
 
 
 
@@ -22,36 +30,32 @@ const deleteTaskBtns = document.querySelectorAll(".tasks__note-delete")
   FUNCTIONS
 \*-------------------------------------------*/
 
-// Generate note when user clicks button or presses enter on keyboard
-function generateNote() {
+
+// Function to: get user input, create html note structure, Update DOM, add note to notes array
+function addNote() {
+
   const formData = new FormData(form);
 
   // Retrieve values entered by user
   const title = formData.get("note__title");
   const body = formData.get("note__body");
-  addNote(title, body);
-
-  // reset form
-  noteTitle.value = '';
-  noteBody.value = '';
-}
-
-
-// Function to create the html note structure, Update the DOM and add the note to the notes array
-function addNote(titleText, bodyText) {
+  // addNote(title, body);
 
   // create the note to update the DOM
   let note = document.createElement("li");
-  note.classList.add("tasks__note", "stack-md");
+  note.classList.add("tasks__note");
   note.id = "note_" + notes.length;
 
-  // Dinamically create html note content
-  //Added in the delete buttons for the tasks
+  // dinamically create html note content
   note.innerHTML = `
-  <button class='tasks__note-delete'>X</button>
-  <button type="button" class="tasks__note-check">☑️</button>
-  <h2 class='tasks__note-title'>${titleText}</h2>
-  <p class='tasks__note-body'>${bodyText}</p>
+  <div class="tasks__note-content">  
+    <h2 class='tasks__note-title'>${title}</h2>
+    <p class='tasks__note-body'>${body}</p>
+  </div>
+  <div class="tasks__note-controls">
+    <button type="button" class="btn-control tasks__note-check">☑️</button>
+    <button  type="button" class="btn-control tasks__note-delete">X</button>
+  </div>
   `
 
   // update the DOM
@@ -61,14 +65,18 @@ function addNote(titleText, bodyText) {
   if (noteTitle.value !== '') {
     notes.push({
       "noteId": "note_" + notes.length,
-      "noteTitle": titleText,
-      "noteBody": bodyText,
+      "noteTitle": title,
+      "noteBody": body,
       "completed": false
     });
   }
-  // console.log(noteTitle.value);
 
-  console.log(notes);
+  // reset form
+  form.reset();
+  // console.log(notes);
+
+  addNoteSection.classList.add("hidden");
+
 }
 
 
@@ -77,7 +85,7 @@ function checkTaskOff(e) {
   // console.log(typeof e);
   if (e.target.classList.contains("tasks__note-check")) {
     let checkedBtnTarget = e.target;
-    checkedBtnTarget.parentElement.classList.toggle('completed');
+    checkedBtnTarget.closest(".tasks__note").classList.toggle('completed');
   }
   //return e; // for testing checkTaskOff receives an object
 }
@@ -86,9 +94,15 @@ function checkTaskOff(e) {
 function taskDelete(e) {
   if (e.target.classList.contains("tasks__note-delete")) {
     let deleteBtn = e.target;
-    deleteBtn.parentElement.remove()
+    deleteBtn.closest(".tasks__note").remove();
     // classList.add('hidden');
   }
+}
+
+
+// function to show note enter div on click
+function showNoteForm() {
+  addNoteSection.classList.toggle("hidden");
 }
 
 
@@ -100,20 +114,22 @@ function taskDelete(e) {
 // When user presses enter on keyboard, get the submitted data from the form, then call addNote();
 window.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && noteBody !== document.activeElement) { // textarea must not be active
-    generateNote();
+    addNote();
   }
 })
 
 // When user clicks new note button, get the submitted data from the form, then call addNote();
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  generateNote();
+  addNote();
 })
 
 
-// When user clicks on checkTaskOff button, the note turns green
+// when user clicks on checkTaskOff button, the note turns green
 tasksList.addEventListener("click", checkTaskOff);
 
-//Delete button that removes tasks
-tasksList.addEventListener('click', taskDelete)
+// delete button that removes tasks
+tasksList.addEventListener('click', taskDelete);
 
+// when clicking the add new note button, the form opens up
+newNoteBtn.addEventListener("click", showNoteForm); 
