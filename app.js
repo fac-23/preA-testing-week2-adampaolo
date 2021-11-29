@@ -53,8 +53,8 @@ function addNote() {
     <p class='tasks__note-body'>${body}</p>
   </div>
   <div class="tasks__note-controls">
-    <button type="button" class="btn-control tasks__note-check">☑️</button>
-    <button  type="button" class="btn-control tasks__note-delete">X</button>
+    <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
+    <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
   </div>
   `
 
@@ -75,7 +75,7 @@ function addNote() {
   form.reset();
   // console.log(notes);
 
-  addNoteSection.classList.add("hidden");
+  newNoteBtn.setAttribute('aria-expanded', 'false');
 
 }
 
@@ -85,7 +85,10 @@ function checkTaskOff(e) {
   // console.log(typeof e);
   if (e.target.classList.contains("tasks__note-check")) {
     let checkedBtnTarget = e.target;
-    checkedBtnTarget.closest(".tasks__note").classList.toggle('completed');
+    let thisNote = checkedBtnTarget.closest(".tasks__note");
+    checkedBtnTarget.checked ?
+      thisNote.classList.add('completed') :
+      thisNote.classList.remove('completed');
   }
   //return e; // for testing checkTaskOff receives an object
 }
@@ -101,8 +104,12 @@ function taskDelete(e) {
 
 
 // function to show note enter div on click
-function showNoteForm() {
-  addNoteSection.classList.toggle("hidden");
+function showNoteForm(e) {
+  e.preventDefault();
+
+  newNoteBtn.getAttribute('aria-expanded') === 'false' ? 
+  newNoteBtn.setAttribute('aria-expanded', 'true') :
+  newNoteBtn.setAttribute('aria-expanded', 'false');
 }
 
 

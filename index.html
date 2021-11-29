@@ -11,23 +11,21 @@
 
 <body>
 
-  <button type="button" class="btn-round btn-new-note">+</button>
+
+  <button type="button" class="btn btn-new-note" aria-label="Insert new note" tabindex = "0" aria-expanded="false">+</button>
 
   <!--User input enter note section-->
-  <section class="note hidden">
+  <section class="note">
 
     <form action="" class="note__form width-sm stack-md">
-
 
       <label for="note__title">NOTE TITLE</label>
       <input type="text" name="note__title" id="note__title" required>  
 
-      <button type="submit" id="note__btn--submit">Submit Note</button>
-
-
       <label for="note__body">NOTE BODY</label>
-      <textarea name="note__body" id="note__body" cols="30" rows="10">
-      </textarea>
+      <textarea name="note__body" id="note__body" cols="30" rows="10"></textarea>
+      
+      <button type="submit" id="note__btn--submit" class="btn">Submit Note</button>
 
 
     </form>
@@ -40,16 +38,51 @@
 
       <li class="tasks__note" id="">
         <div class="tasks__note-content">        
-          <h2 class="tasks__note-title">Note title-1</h2>
+          <h2 class="tasks__note-title">shop for food</h2>
           <p class="tasks__note-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa tempore ipsa ullam debitis provident totam, natus quod corporis sunt labore, unde dignissimos sapiente laborum quis vitae sequi harum, error saepe?</p>
         </div>
 
           <div class="tasks__note-controls">
-            <button type="button" class="btn-control tasks__note-check">☑️</button>
-            <button type="button" class="btn-control tasks__note-delete">X</button>
+            <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
+            <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
           </div>
       </li>
 
+      <li class="tasks__note" id="">
+        <div class="tasks__note-content">        
+          <h2 class="tasks__note-title">remember to remember</h2>
+          <p class="tasks__note-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa tempore ipsa ullam debitis provident totam, natus quod corporis sunt labore, unde dignissimos sapiente laborum quis vitae sequi harum, error saepe?</p>
+        </div>
+
+          <div class="tasks__note-controls">
+            <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
+            <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
+          </div>
+      </li>
+
+      <li class="tasks__note" id="">
+        <div class="tasks__note-content">        
+          <h2 class="tasks__note-title">christmas gifts</h2>
+          <p class="tasks__note-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa tempore ipsa ullam debitis provident totam, natus quod corporis sunt labore, unde dignissimos sapiente laborum quis vitae sequi harum, error saepe?</p>
+        </div>
+
+          <div class="tasks__note-controls">
+            <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
+            <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
+          </div>
+      </li>
+
+      <li class="tasks__note" id="">
+        <div class="tasks__note-content">        
+          <h2 class="tasks__note-title">donate one billion dollars</h2>
+          <p class="tasks__note-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa tempore ipsa ullam debitis provident totam, natus quod corporis sunt labore, unde dignissimos sapiente laborum quis vitae sequi harum, error saepe?</p>
+        </div>
+
+          <div class="tasks__note-controls">
+            <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
+            <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
+          </div>
+      </li>
 
     </ul>
 
