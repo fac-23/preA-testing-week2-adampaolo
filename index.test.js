@@ -46,20 +46,20 @@
 
 
 // filterCompleted() should remove all tasks that have the completed class
-test("filterCompleted() should remove all tasks that have the completed class", () => {
+// test("filterCompleted() should remove all tasks that have the completed class", () => {
 
-		let notCompleted = Array.from(tasksList.children);
+// 		let notCompleted = Array.from(tasksList.children);
 
-		checkTaskOffBtns[0].click(); // check task 1 off
-		checkTaskOffBtns[1].click(); // check task 2 off
+// 		checkTaskOffBtns[0].click(); // check task 1 off
+// 		checkTaskOffBtns[1].click(); // check task 2 off
 
-    filterBtn.click(); // click filter btn
+//     filterBtn.click(); // click filter btn
 
-		let result = notCompleted.filter(el => !el.classList.contains("completed")).length; // filter out completed tasks and return length of remaining tasks
+// 		let result = notCompleted.filter(el => !el.classList.contains("completed")).length; // filter out completed tasks and return length of remaining tasks
 
-		equal(result, 2);
+// 		equal(result, 2);
 
-})
+// })
 
 
 
