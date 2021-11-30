@@ -21,10 +21,10 @@
 
     <form action="" class="note__form width-sm stack-md">
 
-      <label for="note__title">NOTE TITLE</label>
+      <label for="note__title">TITLE</label>
       <input type="text" name="note__title" id="note__title" required>  
 
-      <label for="note__body">NOTE BODY</label>
+      <label for="note__body">DETAILS</label>
       <textarea name="note__body" id="note__body" cols="30" rows="10"></textarea>
       
       <button type="submit" id="note__btn--submit" class="btn">Submit Note</button>
@@ -36,8 +36,11 @@
   <!--Tasks list section-->
   <section class="tasks center width-lg">
 
-    <label for="switch" class="toggle">FILTER COMPLETED</label>
-    <input type="checkbox" name="filter-completed" id="filter-completed">
+    <div class="filter-controls">
+
+      <input type="checkbox" name="filter-completed" id="filter-completed" class="btn">
+      <label for="switch" class="toggle">HIDE COMPLETED</label>
+    </div>
 
     <ul class="tasks__list stack-sm">
 
