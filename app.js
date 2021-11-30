@@ -4,7 +4,8 @@
 
 
 /* layout */
-const newNoteBtn = document.querySelector(".btn-new-note")
+const newNoteBtn = document.querySelector(".btn-new-note");
+const filterBtn = document.querySelector("#filter-completed");
 
 /* note input form */
 const addNoteSection = document.querySelector(".note");
@@ -90,8 +91,14 @@ function checkTaskOff(e) {
       thisNote.classList.add('completed') :
       thisNote.classList.remove('completed');
   }
+
+  // check if filter btn is checked, if it is filter out completed notes
+  if(filterBtn.checked) {
+    filterCompleted();
+  }
   //return e; // for testing checkTaskOff receives an object
 }
+
 
 //Function to delete task
 function taskDelete(e) {
@@ -111,6 +118,28 @@ function showNoteForm(e) {
   newNoteBtn.setAttribute('aria-expanded', 'true') :
   newNoteBtn.setAttribute('aria-expanded', 'false');
 }
+
+
+// function to filter out completed tasks
+function filterCompleted() {
+  let notesDisplayed = Array.from(tasksList.children);
+  let completedTasks = notesDisplayed.filter(el => {
+
+    let checkbox = el.childNodes[3].firstElementChild;
+    return checkbox.checked;
+
+  });
+
+  // if filter btn is checked, loop through completed tasks and hide them
+  if (filterBtn.checked) {
+    completedTasks.forEach(note => note.classList.add("hidden"));
+  } else {
+    completedTasks.forEach(note => note.classList.remove("hidden"));
+  }
+}
+
+
+
 
 
 /*-------------------------------------------*\
@@ -138,5 +167,8 @@ tasksList.addEventListener("click", checkTaskOff);
 // delete button that removes tasks
 tasksList.addEventListener('click', taskDelete);
 
-// when clicking the add new note button, the form opens up
+// when add new note button is clicked, the form opens up
 newNoteBtn.addEventListener("click", showNoteForm); 
+
+// when filter completed button is clicked, the tasks are filtered
+filterBtn.addEventListener("click", filterCompleted);
