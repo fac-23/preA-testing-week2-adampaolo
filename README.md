@@ -4,11 +4,11 @@
 
 ### As a busy person, I want to:
 
-- [ ] Add tasks to a list so that I can keep track of them
+- [x] Add tasks to a list so that I can keep track of them
 
-- [ ] Check things off my list so that I can see what I’ve done
+- [x] Check things off my list so that I can see what I’ve done
 
-- [ ] Delete things from the list if I don’t need to do them anymore
+- [x] Delete things from the list if I don’t need to do them anymore
 
 ### As a motor-impaired user, I want to:
 
@@ -20,8 +20,6 @@
 ### As a busy person, I want to:
 
 - [ ] Filter out completed to-dos from my list so that I can focus on what’s left to do
-
-- [ ] Create functionality to filter completed and uncompleted tasks
 
 
 ## EXTRA ISSUES / FEATURES

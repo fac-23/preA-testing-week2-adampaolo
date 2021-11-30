@@ -232,6 +232,10 @@ body {
   color: rgb(200, 200, 200);;
 }
 
+.hidden {
+  display: none;
+}
+
 
 /* .tasks__note-delete{
   position: relative;

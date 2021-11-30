@@ -7,18 +7,18 @@
 // })
 
 
-test("checkTaskOff() should change target parent's class", () => {
-    const firstNote = document.querySelectorAll(".tasks__note")[0];
-    const noteCheckBtn = firstNote.lastElementChild.firstElementChild;
+// test("checkTaskOff() should change target parent's class", () => {
+//     const firstNote = document.querySelectorAll(".tasks__note")[0];
+//     const noteCheckBtn = firstNote.lastElementChild.firstElementChild;
 
-    noteCheckBtn.click();
+//     noteCheckBtn.click();
 
-    let noteFinalClasses = Array.from(firstNote.classList);
-    let result = noteFinalClasses.includes("completed");
-    // console.log(result); // true
+//     let noteFinalClasses = Array.from(firstNote.classList);
+//     let result = noteFinalClasses.includes("completed");
+//     // console.log(result); // true
 
-    equal(result, true, "The note should have the 'completed' class");
-})
+//     equal(result, true, "The note should have the 'completed' class");
+// })
 
 
 
@@ -37,3 +37,30 @@ test("checkTaskOff() should change target parent's class", () => {
 
 //     equal(!noteExists, true);
 // })
+
+
+
+
+
+/*** Testing filterCompleted() ***/
+
+
+// filterCompleted() should remove all tasks that have the completed class
+test("filterCompleted() should remove all tasks that have the completed class", () => {
+
+		let notCompleted = Array.from(tasksList.children);
+
+		checkTaskOffBtns[0].click(); // check task 1 off
+		checkTaskOffBtns[1].click(); // check task 2 off
+
+    filterBtn.click(); // click filter btn
+
+		let result = notCompleted.filter(el => !el.classList.contains("completed")).length; // filter out completed tasks and return length of remaining tasks
+
+		equal(result, 2);
+
+})
+
+
+
+

@@ -12,7 +12,9 @@
 <body>
 
 
-  <button type="button" class="btn btn-new-note" aria-label="Insert new note" tabindex = "0" aria-expanded="false">+</button>
+
+
+  <button type="button" class="btn btn-new-note" aria-label="Insert new note" aria-expanded="false">+</button>
 
   <!--User input enter note section-->
   <section class="note">
@@ -33,6 +35,9 @@
 
   <!--Tasks list section-->
   <section class="tasks center width-lg">
+
+    <label for="switch" class="toggle">FILTER COMPLETED</label>
+    <input type="checkbox" name="filter-completed" id="filter-completed">
 
     <ul class="tasks__list stack-sm">
 
@@ -66,10 +71,10 @@
           <p class="tasks__note-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa tempore ipsa ullam debitis provident totam, natus quod corporis sunt labore, unde dignissimos sapiente laborum quis vitae sequi harum, error saepe?</p>
         </div>
 
-          <div class="tasks__note-controls">
-            <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
-            <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
-          </div>
+        <div class="tasks__note-controls">
+          <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
+          <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
+        </div>
       </li>
 
       <li class="tasks__note" id="">
@@ -91,7 +96,7 @@
 
   <script src="app.js"></script>
   <script src="test-helpers.js"></script>
-  <!-- <script src="index.test.js"></script> -->
+  <script src="index.test.js"></script>
 </body>
 
 </html>
