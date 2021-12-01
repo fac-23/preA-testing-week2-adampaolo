@@ -1,24 +1,35 @@
 /*** Testing checkTaskOff() ***/
 
-// comment out everything from checkTaskOff() on line 76(before addition to code it was line 72) in app.js apart from [return e;]  
-// test("checkTaskOff() should receive an object as argument", () => {
+
+// comment out everything from checkTaskOff() on line 76(before addition to code it was line 72) in app.js apart from [return e;] 
+
+// test("checkTaskOff() 01 - checkTaskOff should receive an object as argument", () => {
 //   let result = checkTaskOff({});
-//   equal(typeof result, 'object', `checkTaskOff() should receive an object as argument, received: ${typeof result}`);
+//   let expected = 'object';
+
+//   equal(typeof result, expected, `checkTaskOff() should receive an ${expected} as argument, received: ${typeof result}`);
 // })
 
 
-// test("checkTaskOff() should change target parent's class", () => {
-//     const firstNote = document.querySelectorAll(".tasks__note")[0];
-//     const noteCheckBtn = firstNote.lastElementChild.firstElementChild;
+// check if the first note contains the completed class after clicking its check button
 
+// test("checkTaskOff() 02 - checkTaskOff should change target parent's class", () => {
+//     // select first note
+//     const firstNote = document.querySelectorAll(".tasks__note")[0]; 
+//     // select first note check button
+//     const noteCheckBtn = firstNote.lastElementChild.firstElementChild; 
+
+//     // virtually click the button
 //     noteCheckBtn.click();
 
-//     let noteFinalClasses = Array.from(firstNote.classList);
-//     let result = noteFinalClasses.includes("completed");
-//     // console.log(result); // true
+//     // check if first note contains the completed class
+//     let result = firstNote.classList.contains("completed");
 
-//     equal(result, true, "The note should have the 'completed' class");
+//     let expected = true;
+
+//     equal(result, expected, "The note should have the 'completed' class");
 // })
+
 
 
 
@@ -46,21 +57,28 @@
 
 
 // filterCompleted() should remove all tasks that have the completed class
+
 // test("filterCompleted() should remove all tasks that have the completed class", () => {
 
-// 		let notCompleted = Array.from(tasksList.children);
+// 		let notes = Array.from(tasksList.children); // selecting all notes, we have 4
 
-// 		checkTaskOffBtns[0].click(); // check task 1 off
-// 		checkTaskOffBtns[1].click(); // check task 2 off
+// 		checkTaskOffBtns[0].click(); // check task 1 off applying completed class
+// 		checkTaskOffBtns[1].click(); // check task 2 off applying completed class
 
 //     filterBtn.click(); // click filter btn
 
-// 		let result = notCompleted.filter(el => !el.classList.contains("completed")).length; // filter out completed tasks and return length of remaining tasks
+// 		let result = notes.filter(el => !el.classList.contains("completed")).length; // filter out completed tasks and return length of remaining tasks
+//     let expected = 2;
 
-// 		equal(result, 2);
+// 		equal(result, expected);
 
 // })
 
+
+
+
+
+/*** Testing addNote() ***/
 
 
 
