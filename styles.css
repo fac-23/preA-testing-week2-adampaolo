@@ -182,9 +182,12 @@ body {
   position: absolute;
   top: 1.8rem;
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
-  color: #fff;
   gap: 1rem;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px black;
 }
 
 .tasks {
