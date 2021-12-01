@@ -54,8 +54,8 @@ function addNote() {
     <p class='tasks__note-body'>${body}</p>
   </div>
   <div class="tasks__note-controls">
-    <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
-    <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
+    <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Click this button to check task as completed"></input>
+    <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Click this button to delete task">X</button>
   </div>
   `
   

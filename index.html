@@ -6,29 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Document</title>
+  <title>To Do List Tracker</title>
 </head>
 
 <body>
 
+  <button type="button" class="btn btn-new-note"  aria-expanded="false" tabindex="0" aria-label="Click this button to insert a new note">+</button>
 
-
-
-  <button type="button" class="btn btn-new-note" aria-label="Insert new note" aria-expanded="false">+</button>
-
-  <!--User input enter note section-->
+  <!--User enter new note form section-->
   <section class="note">
 
     <form action="" class="note__form width-sm stack-md">
 
       <label for="note__title">TITLE</label>
-      <input type="text" name="note__title" id="note__title" required>  
+      <span id="note-title-error" hidden>Please enter a title for your note.</span>
+      <input type="text" name="note__title" id="note__title" aria-describedby="note-title-error" required>  
 
       <label for="note__body">DETAILS</label>
       <textarea name="note__body" id="note__body" cols="30" rows="10"></textarea>
       
       <button type="submit" id="note__btn--submit" class="btn">Submit Note</button>
-
 
     </form>
   </section>
@@ -36,12 +33,13 @@
   <!--Tasks list section-->
   <section class="tasks center width-lg">
 
+    <!--Filter button-->
     <div class="filter-controls">
-
-      <input type="checkbox" name="filter-completed" id="filter-completed" class="btn">
+      <input type="checkbox" name="filter-completed" id="filter-completed" class="btn" aria-label="Click this button to filter out the completed tasks">
       <label for="switch" class="toggle">HIDE COMPLETED</label>
     </div>
 
+    <!--Tasks list-->
     <ul class="tasks__list stack-sm">
 
       <li class="tasks__note" id="">
@@ -51,8 +49,8 @@
         </div>
 
           <div class="tasks__note-controls">
-            <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
-            <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
+            <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Click this button to check task as completed"></input>
+            <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Click this button to delete task">X</button>
           </div>
       </li>
 
@@ -63,8 +61,8 @@
         </div>
 
           <div class="tasks__note-controls">
-            <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
-            <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
+            <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Click this button to check task as completed"></input>
+            <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Click this button to delete task">X</button>
           </div>
       </li>
 
@@ -75,8 +73,8 @@
         </div>
 
         <div class="tasks__note-controls">
-          <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
-          <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
+          <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Click this button to check task as completed"></input>
+          <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Click this button to delete task">X</button>
         </div>
       </li>
 
@@ -87,8 +85,8 @@
         </div>
 
           <div class="tasks__note-controls">
-            <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Check note as completed"></input>
-            <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Delete note">X</button>
+            <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Click this button to check task as completed"></input>
+            <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Click this button to delete task">X</button>
           </div>
       </li>
 
