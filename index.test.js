@@ -3,12 +3,12 @@
 
 // comment out everything from checkTaskOff() on line 76(before addition to code it was line 72) in app.js apart from [return e;] 
 
-// test("checkTaskOff() 01 - checkTaskOff should receive an object as argument", () => {
-//   let result = checkTaskOff({});
-//   let expected = 'object';
+test("checkTaskOff() 01 - checkTaskOff should receive an object as argument", () => {
+  let result = checkTaskOff({});
+  let expected = 'object';
 
-//   equal(typeof result, expected, `checkTaskOff() should receive an ${expected} as argument, received: ${typeof result}`);
-// })
+  equal(typeof result, expected, `checkTaskOff() should receive an ${expected} as argument, received: ${typeof result}`);
+})
 
 
 // check if the first note contains the completed class after clicking its check button

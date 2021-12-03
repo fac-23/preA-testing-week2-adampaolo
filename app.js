@@ -42,56 +42,59 @@ function addNote() {
   const body = formData.get("note__body");
   // addNote(title, body);
 
-  // create the note to update the DOM
-  let note = document.createElement("li");
-  note.classList.add("tasks__note");
-  note.id = "note_" + notes.length;
-
-
-  // create basic html note structure
-  note.innerHTML = `
-  
-  <div class="tasks__note-controls">
-    <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Click this button to check task as completed"></input>
-    <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Click this button to delete task">X</button>
-  </div>
-  `
-
-  // Add user input to the note using the textContent property to prevent Cross-Site Scripting vulnerability.
-  const noteContent = document.createElement("div");
-  noteContent.classList.add("tasks__note-content");
-
-  const noteTitle = document.createElement("h2");
-  noteTitle.classList.add("tasks__note-title");
-  noteTitle.textContent = title;
-
-  const noteBody = document.createElement("p");
-  noteBody.classList.add("tasks__note-body");
-  noteBody.textContent = body;
-
-  noteContent.append(noteTitle, noteBody);
-  note.prepend(noteContent);
-
-
-  // update the DOM
-  tasksList.append(note);
-
-  // if the title field is not empty, store the note into an object and push it to the notes array
+  // if the title field is not empty
   if (noteTitle.value !== '') {
+
+    // create the note to update the DOM
+    let note = document.createElement("li");
+    note.classList.add("tasks__note");
+    note.id = "note_" + notes.length;
+
+
+    // create basic html note structure
+    note.innerHTML = `
+    
+    <div class="tasks__note-controls">
+      <input type="checkbox" class="btn btn-control tasks__note-check" aria-label="Click this button to check task as completed"></input>
+      <button  type="button" class="btn btn-control tasks__note-delete" aria-label="Click this button to delete task">X</button>
+    </div>
+    `
+
+    // Add user input to the note using the textContent property to prevent Cross-Site Scripting vulnerability.
+    const noteContent = document.createElement("div");
+    noteContent.classList.add("tasks__note-content");
+
+    const noteTitle = document.createElement("h2");
+    noteTitle.classList.add("tasks__note-title");
+    noteTitle.textContent = title;
+
+    const noteBody = document.createElement("p");
+    noteBody.classList.add("tasks__note-body");
+    noteBody.textContent = body;
+
+    noteContent.append(noteTitle, noteBody);
+    note.prepend(noteContent);
+
+
+    // update the DOM
+    tasksList.append(note);
+
+    // store the note into an object and push it to the notes array
     notes.push({
       "noteId": "note_" + notes.length,
       "noteTitle": title,
       "noteBody": body,
       "completed": false
     });
+
+    // reset form
+    form.reset();
+    // console.log(notes);
+
+    // let impaired users know the enter new note form section is collapsed
+    newNoteBtn.setAttribute('aria-expanded', 'false');
+
   }
-
-  // reset form
-  form.reset();
-  // console.log(notes);
-
-  // let impaired users know the enter new note form section is collapsed
-  newNoteBtn.setAttribute('aria-expanded', 'false');
 
 }
 
