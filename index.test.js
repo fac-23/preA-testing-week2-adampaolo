@@ -1,19 +1,9 @@
 /*** Testing checkTaskOff() ***/
 
 
-// comment out everything from checkTaskOff() on line 76(before addition to code it was line 72) in app.js apart from [return e;] 
+// checkTaskOff 01 - check if the first note contains the completed class after clicking its check button
 
-test("checkTaskOff() 01 - checkTaskOff should receive an object as argument", () => {
-  let result = checkTaskOff({});
-  let expected = 'object';
-
-  equal(typeof result, expected, `checkTaskOff() should receive an ${expected} as argument, received: ${typeof result}`);
-})
-
-
-// check if the first note contains the completed class after clicking its check button
-
-// test("checkTaskOff() 02 - checkTaskOff should change target parent's class", () => {
+// test("checkTaskOff() 01 - checkTaskOff should change target parent's class", () => {
 //     // select first note
 //     const firstNote = document.querySelectorAll(".tasks__note")[0]; 
 //     // select first note check button
@@ -28,6 +18,30 @@ test("checkTaskOff() 01 - checkTaskOff should receive an object as argument", ()
 //     let expected = true;
 
 //     equal(result, expected, "The note should have the 'completed' class");
+// })
+
+
+
+// checkTaskOff 02 - check if only one element's class is changed
+
+// test("checkTaskOff() 02 - checkTaskOff should only change the target element's class", () => {
+
+//     // select all notes
+//     const notes = Array.from(document.querySelectorAll(".tasks__note")); 
+
+//     // select first note check button
+//     const secondNoteCheckBtn = notes[1].lastElementChild.firstElementChild; 
+
+//     // virtually click the button
+//     secondNoteCheckBtn.click();
+
+//     // find number of uncompleted notes
+//     let result = notes.filter(el => !el.classList.contains("completed"));
+
+//     let expected = 3;
+
+//     equal(result.length, expected);
+
 // })
 
 
@@ -48,6 +62,36 @@ test("checkTaskOff() 01 - checkTaskOff should receive an object as argument", ()
 
 //     equal(!noteExists, true);
 // })
+
+
+// taskDelete 02 - taskDelete should only remove one task
+
+// test('taskDelete should only remove one task', () => {
+
+//   // get all displayed tasks
+//   let tasks = document.querySelectorAll(".tasks__note");
+
+//   // get first task's delete button
+//   let firstTaskDelBtn = tasks[0].lastElementChild.lastElementChild;
+
+//   firstTaskDelBtn.click();
+
+//   // get the tasks after deleting one
+//   let result = document.querySelectorAll(".tasks__note");
+
+//   // expected number of tasks after deleting 1
+//   let expected = 3;
+
+//   equal(result.length, expected);
+// })
+
+
+
+
+
+
+
+
 
 
 
