@@ -14,7 +14,9 @@
   <button type="button" class="btn btn-new-note"  aria-expanded="false" tabindex="0" aria-label="Click this button to insert a new note">+</button>
 
   <!--User enter new note form section-->
-  <section class="note">
+  <section class="note" role="dialog" aria-labelledby="dialog1Title" aria-describedby="dialog1Desc">
+
+    <p id="dialog1Desc" class="hidden">Open this section to enter a new note</p>
 
     <form action="" class="note__form width-sm stack-md">
 

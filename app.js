@@ -15,6 +15,7 @@ const noteBody = document.querySelector("#note__body");
 const noteSubmitBtn = document.querySelector("#note__btn--submit");
 
 /* note list */
+const tasksSection = document.querySelector(".tasks");
 const tasksList = document.querySelector(".tasks__list");
 const checkTaskOffBtns = document.querySelectorAll(".tasks__note-check");
 let notes = [];
@@ -91,6 +92,8 @@ function addNote() {
     form.reset();
     // console.log(notes);
 
+    tasksSection.classList.remove("hidden");
+
     // expose the state of the popup programmatically to let users know the enter new note form section is collapsed
     newNoteBtn.setAttribute('aria-expanded', 'false');
 
@@ -130,6 +133,8 @@ function taskDelete(e) {
 // function to show note enter div on click
 function showNoteForm(e) {
   e.preventDefault();
+
+  tasksSection.classList.toggle("hidden");
 
   newNoteBtn.getAttribute('aria-expanded') === 'false' ? 
   newNoteBtn.setAttribute('aria-expanded', 'true') :
@@ -204,22 +209,22 @@ filterBtn.addEventListener("click", filterCompleted);
 
 
 
-// this is not a complete list of focusable elements!
-let focusableEls = `a[href], button:not([disabled]), input:not([disabled], textarea:not([disabled], [tabindex]`;
+// // this is not a complete list of focusable elements!
+// let focusableEls = `a[href], button:not([disabled]), input:not([disabled], textarea:not([disabled], [tabindex]`;
 
-// focusout events "bubble" from children
-// so this fires when focus leaves _any_ child of the form
-// so we need a little logic to know when focus leaves the form
-// @TODO: make it work the other way
-// i.e. when using shift-tab to move focus backwards
-form.addEventListener("focusout", (event) => {
-  let nextFocusedEl = event.relatedTarget;
-  let focusHasLeft = !form.contains(nextFocusedEl);
-  if (focusHasLeft) {
-    let firstFocusableEl = form.querySelector(focusableEls);
-    firstFocusableEl.focus();
-  }
-});
+// // focusout events "bubble" from children
+// // so this fires when focus leaves _any_ child of the form
+// // so we need a little logic to know when focus leaves the form
+// // @TODO: make it work the other way
+// // i.e. when using shift-tab to move focus backwards
+// form.addEventListener("focusout", (event) => {
+//   let nextFocusedEl = event.relatedTarget;
+//   let focusHasLeft = !form.contains(nextFocusedEl);
+//   if (focusHasLeft) {
+//     let firstFocusableEl = form.querySelector(focusableEls);
+//     firstFocusableEl.focus();
+//   }
+// });
 
 
 
