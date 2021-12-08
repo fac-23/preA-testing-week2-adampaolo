@@ -147,7 +147,7 @@ function filterCompleted() {
   let completedTasks = notesDisplayed.filter(el => {
 
     // check if the checkbox of each task is checked
-    let checkbox = el.lastElementChild.firstElementChild;
+    let checkbox = el.querySelector("input[type='checkbox']");
     return checkbox.checked;
 
   });
