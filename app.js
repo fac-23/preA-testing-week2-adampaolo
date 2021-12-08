@@ -91,7 +91,7 @@ function addNote() {
     form.reset();
     // console.log(notes);
 
-    // let impaired users know the enter new note form section is collapsed
+    // let screen reader users users know the enter new note form section is collapsed
     newNoteBtn.setAttribute('aria-expanded', 'false');
 
   }
