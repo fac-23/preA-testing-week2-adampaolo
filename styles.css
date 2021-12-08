@@ -144,10 +144,12 @@ body {
 .note__form {
   display: flex;
   flex-direction: column;
+  height: 60%;
 }
 
 #note__body {
   font-family: sans-serif;
+  min-height: 50px;
 }
 
 #note__title, #note__body, #note__btn--submit {
