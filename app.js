@@ -198,6 +198,37 @@ filterBtn.addEventListener("click", filterCompleted);
 
 
 
+// OLI'S HACK - TO UNDERSTAND AND EXPAND
+
+
+
+
+
+// this is not a complete list of focusable elements!
+let focusableEls = `a[href], button:not([disabled]), input:not([disabled], textarea:not([disabled], [tabindex]`;
+
+// focusout events "bubble" from children
+// so this fires when focus leaves _any_ child of the form
+// so we need a little logic to know when focus leaves the form
+// @TODO: make it work the other way
+// i.e. when using shift-tab to move focus backwards
+form.addEventListener("focusout", (event) => {
+  let nextFocusedEl = event.relatedTarget;
+  let focusHasLeft = !form.contains(nextFocusedEl);
+  if (focusHasLeft) {
+    let firstFocusableEl = form.querySelector(focusableEls);
+    firstFocusableEl.focus();
+  }
+});
+
+
+
+
+
+
+
+
+
 
 
 /*-------------------------------------------*\
